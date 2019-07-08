@@ -1,8 +1,41 @@
+URI Template
+=============
+Complete implementation of [RFC-6570 (uri-templates)](http://tools.ietf.org/html/rfc6570) in Scala
 
-# uri-template
+[Apache 2 Licenced](http://www.apache.org/licenses/LICENSE-2.0)
 
-This is a placeholder README.md for a new repository
+Example of usage (see the tests for more)
+--------------------------------------------------
 
-### License
+```scala
+import uritemplate._
+import uk.gov.hmrc.uritemplate.syntax.UriTemplateSyntax
 
-This code is open source software licensed under the [Apache 2.0 License]("http://www.apache.org/licenses/LICENSE-2.0.html").
+class MyConnector extends BaseConnector with UriTemplateSyntax {
+
+  val uriString = URITemplate("http://example.com/hello/{variable}/things{?p1,p2,p3}")
+  val expanded = uriString.templated("variable" -> "world", "p1" -> 42, "p2" -> false, "p3" -> "huh?")
+  
+  expanded == "http://example.com/hello/world/things?p1=42&p2=false&p3=%3F"
+
+}
+```
+
+Dependencies
+------------
+
+SBT:
+
+```
+libraryDependencies += "uk.gov.hmrc" %% "uri-template" % "1.1.0"
+```
+
+Maven:
+
+```xml
+<dependency>
+  <groupId>uk.gov.hmrc</groupId>
+  <artifactId>uri-template_${scalaVersion}</artifactId>
+  <version>1.1.0</version>
+</dependency>
+```
