@@ -1,6 +1,7 @@
 import sbt.Keys._
 import sbt._
 import uk.gov.hmrc.versioning.SbtGitVersioning
+import scoverage.ScoverageKeys.coverageEnabled
 
 val libName = "uri-template"
 
@@ -22,9 +23,13 @@ lazy val uriTemplating = (project in file("."))
       "org.pegdown" % "pegdown" % "1.6.0" % "test"
     ),
     crossScalaVersions := List(scala212, scala211),
-    scalaVersion := scala212
+    scalaVersion := scala212,
+    coverageEnabled in Test := true
   )
 
 lazy val scala212 = "2.12.8"
 lazy val scala211 = "2.11.12"
 lazy val parserCombinatorsVersion = "1.0.7"
+
+coverageExcludedPackages := "<empty>;uk.gov.hmrc.BuildInfo;uritemplate.*"
+

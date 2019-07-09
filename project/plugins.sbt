@@ -8,3 +8,5 @@ addSbtPlugin("uk.gov.hmrc" % "sbt-git-versioning" % "1.19.0")
 
 addSbtPlugin("uk.gov.hmrc" % "sbt-artifactory" % "0.19.0")
 
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
+

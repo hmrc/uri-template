@@ -11,12 +11,13 @@ Example of usage (see the tests for more)
 import uritemplate._
 import uk.gov.hmrc.uritemplate.syntax.UriTemplateSyntax
 
-class MyConnector extends BaseConnector with UriTemplateSyntax {
+object MyApp extends App with UriTemplateSyntax {
 
   val uriString = URITemplate("http://example.com/hello/{variable}/things{?p1,p2,p3}")
   val expanded = uriString.templated("variable" -> "world", "p1" -> 42, "p2" -> false, "p3" -> "huh?")
   
-  expanded == "http://example.com/hello/world/things?p1=42&p2=false&p3=%3F"
+  println(expanded)
+  // http://example.com/hello/world/things?p1=42&p2=false&p3=%3F
 
 }
 ```
@@ -27,7 +28,7 @@ Dependencies
 SBT:
 
 ```
-libraryDependencies += "uk.gov.hmrc" %% "uri-template" % "1.1.0"
+libraryDependencies += "uk.gov.hmrc" %% "uri-template" % "$version"
 ```
 
 Maven:
@@ -36,6 +37,6 @@ Maven:
 <dependency>
   <groupId>uk.gov.hmrc</groupId>
   <artifactId>uri-template_${scalaVersion}</artifactId>
-  <version>1.1.0</version>
+  <version>$version</version>
 </dependency>
 ```
