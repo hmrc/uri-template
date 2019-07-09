@@ -23,7 +23,7 @@ lazy val uriTemplating = (project in file("."))
       "org.pegdown" % "pegdown" % "1.6.0" % "test"
     ),
     crossScalaVersions := List(scala212, scala211),
-    scalaVersion := scala212,
+    scalaVersion := scala211,
     coverageEnabled in Test := true
   )
 
