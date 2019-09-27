@@ -13,23 +13,27 @@ lazy val uriTemplating = (project in file("."))
     makePublicallyAvailableOnBintray := true,
     resolvers := Seq(Resolver.bintrayRepo("hmrc", "releases")),
     libraryDependencies <++= scalaBinaryVersion {
-      case v if Set("2.12", "2.11") contains v =>
-        Seq("org.scala-lang.modules" % s"scala-parser-combinators_$v" % parserCombinatorsVersion)
+      case v if Set("2.13", "2.12") contains v =>
+        Seq("org.scala-lang.modules" % s"scala-parser-combinators_$v" % "1.1.2")
+      case "2.11" =>
+        Seq("org.scala-lang.modules" % s"scala-parser-combinators_2.11" % "1.0.7")
       case _ =>
         Nil
     },
     libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+      "org.scalatest" %% "scalatest" % "3.0.8" % "test",
       "org.pegdown" % "pegdown" % "1.6.0" % "test"
     ),
-    crossScalaVersions := List(scala212, scala211),
+    scalacOptions := Seq( "-Xlint", "-target:jvm-1.8", "-encoding", "UTF-8"),
+    crossScalaVersions := List(scala213, scala212, scala211),
     scalaVersion := scala211,
     coverageEnabled in Test := true
   )
 
-lazy val scala212 = "2.12.8"
+lazy val scala213 = "2.13.1"
+lazy val scala212 = "2.12.10"
 lazy val scala211 = "2.11.12"
-lazy val parserCombinatorsVersion = "1.0.7"
+lazy val parserCombinatorsVersion = "1.1.2"
 
 coverageExcludedPackages := "<empty>;uk.gov.hmrc.BuildInfo;uritemplate.*"
 
