@@ -26,7 +26,7 @@ lazy val uriTemplating = (project in file("."))
     ),
     scalacOptions := Seq( "-Xlint", "-target:jvm-1.8", "-encoding", "UTF-8"),
     crossScalaVersions := List(scala213, scala212, scala211),
-    scalaVersion := scala211,
+    scalaVersion := scala212,
     coverageEnabled in Test := true
   )
 
