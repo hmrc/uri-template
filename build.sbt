@@ -11,7 +11,6 @@ lazy val uriTemplating = (project in file("."))
     name := libName,
     majorVersion := 1,
     makePublicallyAvailableOnBintray := true,
-    resolvers := Seq(Resolver.bintrayRepo("hmrc", "releases")),
     libraryDependencies ++= scalaBinaryVersion {
       case v if Set("2.13", "2.12") contains v =>
         Seq("org.scala-lang.modules" % s"scala-parser-combinators_$v" % "1.1.2")
