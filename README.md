@@ -26,5 +26,7 @@ object MyApp extends App with UriTemplateSyntax {
 **SBT**
 
 ```
+resolvers += "HMRC-open-artefacts-maven" at "https://open.artefacts.tax.service.gov.uk/maven2"
+
 libraryDependencies += "uk.gov.hmrc" %% "uri-template" % "$version"
 ```
