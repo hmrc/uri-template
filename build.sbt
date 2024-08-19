@@ -1,12 +1,10 @@
 import sbt.Keys.*
 import sbt.*
-import uk.gov.hmrc.versioning.SbtGitVersioning
 import scoverage.ScoverageKeys.coverageEnabled
 
 val libName = "uri-template"
 
 lazy val uriTemplating = (project in file("."))
-  .enablePlugins(SbtAutoBuildPlugin, SbtGitVersioning)
   .settings(
     name := libName,
     majorVersion := 1,
