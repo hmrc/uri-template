@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,11 +16,12 @@
 
 package uk.gov.hmrc.uritemplate.syntax
 
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
+
 import java.util.UUID.randomUUID
 
-import org.scalatest.{Matchers, WordSpec}
-
-class UriTemplateSyntaxSpec extends WordSpec with Matchers with UriTemplateSyntax {
+class UriTemplateSyntaxSpec extends AnyWordSpec with Matchers with UriTemplateSyntax {
 
   "templating a URL" should {
 
