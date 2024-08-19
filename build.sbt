@@ -19,7 +19,7 @@ lazy val uriTemplating = (project in file("."))
       "org.pegdown"          % "pegdown"      % "1.6.0"  % Test,
       "com.vladsch.flexmark" % "flexmark-all" % "0.64.8" % Test
     ),
-    scalacOptions := Seq( "-Xlint", "-target:jvm-11", "-encoding", "UTF-8"),
+    scalacOptions := Seq( "-Xlint", "-target:jvm-1.8", "-encoding", "UTF-8"),
     crossScalaVersions := List(scala213, scala212),
     scalaVersion := scala213,
     Test / coverageEnabled := true
