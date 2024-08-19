@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 HM Revenue & Customs
+ * Copyright 2024 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +16,10 @@
 
 package uritemplate
 
-import org.scalatest.PropSpec
 import org.scalatest.prop.TableDrivenPropertyChecks._
+import org.scalatest.propspec.AnyPropSpec
 
-trait ExpansionSpec extends PropSpec with Syntax {
+trait ExpansionSpec extends AnyPropSpec with Syntax {
 
   val variables:Map[String, Option[Variable]]
 
