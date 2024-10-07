@@ -20,7 +20,7 @@ object Syntax extends Syntax
 
 trait Syntax {
   import scala.language.implicitConversions
-  implicit def varString(s:String) = Var(s)
+  implicit def varString(s:String): Var = Var(s)
 }
 
 case class Var(s:String){
@@ -36,23 +36,23 @@ trait CanBeVar[-V] {
 }
 
 trait CanBeVars extends LowerPriorityCanBeVars {
-  implicit val stringCanBe = new CanBeVar[String]{
+  implicit val stringCanBe: CanBeVar[String] = new CanBeVar[String]{
     def canBe(v: String) = Option(v).map(vv => SequentialVar(Seq(vv)))
   }
 
-  implicit val tuple2CanBe = new CanBeVar[(String, String)]{
+  implicit val tuple2CanBe: CanBeVar[(String, String)] = new CanBeVar[(String, String)]{
     def canBe(v: (String, String)) = Option(v).map(vv => AssociativeVar(Seq(vv)))
   }
 
-  implicit val seqStringCanBe = new CanBeVar[Seq[String]]{
+  implicit val seqStringCanBe: CanBeVar[Seq[String]] = new CanBeVar[Seq[String]]{
     def canBe(v: Seq[String]) = Option(v).map(SequentialVar)
   }
 
-  implicit def optionCanBe[C : CanBeVar] = new CanBeVar[Option[C]]{
+  implicit def optionCanBe[C : CanBeVar]: CanBeVar[Option[C]] = new CanBeVar[Option[C]]{
     def canBe(v: Option[C]) = v.flatMap(CanBeVar[C].canBe)
   }
 
-  implicit val optionNothingCanBe = new CanBeVar[Option[Nothing]]{
+  implicit val optionNothingCanBe: CanBeVar[Option[Nothing]] = new CanBeVar[Option[Nothing]]{
     def canBe(v: Option[Nothing]) = v
   }
 }
