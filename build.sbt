@@ -10,14 +10,15 @@ lazy val uriTemplating = (project in file("."))
     majorVersion := 1,
     libraryDependencies ++= scalaBinaryVersion {
       case v if Set("2.13", "2.12") contains v =>
-        Seq("org.scala-lang.modules" % s"scala-parser-combinators_$v" % "2.4.0")
+        Seq()
       case _ =>
         Nil
     }.value,
     libraryDependencies ++= Seq(
       "org.scalatest"       %% "scalatest"    % "3.2.19" % Test,
       "org.pegdown"          % "pegdown"      % "1.6.0"  % Test,
-      "com.vladsch.flexmark" % "flexmark-all" % "0.64.8" % Test
+      "com.vladsch.flexmark" % "flexmark-all" % "0.64.8" % Test,
+      "org.scala-lang.modules" % s"scala-parser-combinators_2.13" % "1.1.2"
     ),
     scalacOptions := Seq( "-Xlint", "-target:jvm-1.8", "-encoding", "UTF-8"),
     crossScalaVersions := List(scala213, scala212),
