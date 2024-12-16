@@ -14,7 +14,7 @@ lazy val uriTemplating = (project in file("."))
       "org.scalatest"       %% "scalatest"    % "3.2.19" % Test,
       "org.pegdown"          % "pegdown"      % "1.6.0"  % Test,
       "com.vladsch.flexmark" % "flexmark-all" % "0.64.8" % Test,
-      "org.scala-lang.modules" % s"scala-parser-combinators_2.13" % "1.1.2"
+      "org.scala-lang.modules" % "scala-parser-combinators_2.13" % "2.4.0"
     ),
     scalacOptions := Seq( "-Xlint", "-target:jvm-1.8", "-encoding", "UTF-8"),
     Test / coverageEnabled := true
