@@ -58,7 +58,7 @@ trait CanBeVars extends LowerPriorityCanBeVars {
 }
 
 trait LowerPriorityCanBeVars {
-  implicit val seqTupleCanBe = new CanBeVar[Seq[(String, String)]]{
+  implicit val seqTupleCanBe: CanBeVar[Seq[(String, String)]] = new CanBeVar[Seq[(String, String)]]{
     def canBe(v: Seq[(String, String)]) = Option(v).map(AssociativeVar)
   }
 }
