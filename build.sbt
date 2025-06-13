@@ -4,7 +4,7 @@ import scoverage.ScoverageKeys.coverageEnabled
 
 val libName = "uri-template"
 
-ThisBuild / scalaVersion := "2.13.12"
+ThisBuild / scalaVersion := "2.13.16"
 
 lazy val uriTemplating = (project in file("."))
   .settings(
@@ -12,7 +12,6 @@ lazy val uriTemplating = (project in file("."))
     majorVersion := 1,
     libraryDependencies ++= Seq(
       "org.scalatest"       %% "scalatest"    % "3.2.19" % Test,
-      "org.pegdown"          % "pegdown"      % "1.6.0"  % Test,
       "com.vladsch.flexmark" % "flexmark-all" % "0.64.8" % Test,
       "org.scala-lang.modules" % "scala-parser-combinators_2.13" % "2.4.0"
     ),
