@@ -4,7 +4,7 @@ import scoverage.ScoverageKeys.coverageEnabled
 
 val libName = "uri-template"
 
-ThisBuild / scalaVersion := "2.13.16"
+ThisBuild / scalaVersion := "2.13.17"
 
 lazy val uriTemplating = (project in file("."))
   .settings(
