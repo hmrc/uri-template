@@ -16,7 +16,7 @@ lazy val uriTemplating = (project in file("."))
       "org.scala-lang.modules" % "scala-parser-combinators_2.13" % "2.5.0"
     ),
     scalacOptions := Seq( "-Xlint", "-target:jvm-1.8", "-encoding", "UTF-8"),
-    coverageEnabled := true
+    Test / coverageEnabled := true
   )
 coverageExcludedPackages := "<empty>;uk.gov.hmrc.BuildInfo;uritemplate.*"
 
